@@ -4,6 +4,7 @@ import {useMutation} from '@apollo/client'
 import {useParams} from 'react-router-dom'
 import {centum, datus} from '../../../shared/libs/libs'
 import {AppContext} from '../../../context/AppContext' 
+import {getWeatherAPI} from '../../../utils/weather' 
 import {changeTitle, buildNotification} from '../../../utils/notifications'
 import {classHandler} from '../../../utils/css'
 import RouterNavigator from '../../router/RouterNavigator'
@@ -31,6 +32,7 @@ const Picnic: React.FC = () => {
     const [theme, setTheme] = useState<any | null>(null)
     
     const [cords, setCords] = useState<Cords>({lat: 0, long: 0})
+    const [weatherItems, setWeatherItems] = useState<string[]>([])
     const [image, setImage] = useState<string>('')
 
     const [state, setState] = useState({
@@ -98,6 +100,12 @@ const Picnic: React.FC = () => {
                 setPersonality(result)
             }
 
+            getWeatherAPI(picnic.cords.lat, picnic.cords.long, false).then(data => {
+                let result: string[] = data.list.map(el => el.weather[0].main).slice(0, 3)
+
+                setWeatherItems(result)
+            })
+
             setCords(picnic.cords)
         }
     }, [picnic])
@@ -156,6 +164,11 @@ const Picnic: React.FC = () => {
                     </div>  
 
                     <span>Время: {picnic.dateUp} в {picnic.time}</span>
+
+                    <h4 className='pale'>Прогноз погоды на каждые 3 часа</h4>
+                    <div className='items small'>
+                        {weatherItems.map(el => <h5>{el}</h5>)}
+                    </div>
 
                     <ReactMapGL {...view} onViewportChange={(e: any) => setView(e)} mapboxApiAccessToken={token}>
                         <Marker latitude={cords.lat} longitude={cords.long}>

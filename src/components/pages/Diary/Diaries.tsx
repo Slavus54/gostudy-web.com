@@ -6,70 +6,70 @@ import {classHandler} from '../../../utils/css'
 import RouterNavigator from '../../router/RouterNavigator'
 import DataPagination from '../../../shared/UI/DataPagination'
 import Loading from '../../../shared/UI/Loading'
-import {getStoriesQ} from './gql/queries'
+import {getDiariesQ} from './gql/queries'
 import {COUNTRIES, SEARCH_PERCENT} from '../../../env/env'
-import {STORY_TYPES, STORY_STATUSES} from './env'
+import {DIARY_TYPES, LANG_LEVELS} from './env'
 
-const Stories: React.FC = () => {
+const Diaries: React.FC = () => {
     const [filtered, setFiltered] = useState<any[]>([])
-    const [stories, setStories] = useState<any[] | null>(null)
+    const [diaries, setDiaries] = useState<any[] | null>(null)
     
     const [title, setTitle] = useState<string>('')
-    const [category, setCategory] = useState<string>(STORY_TYPES[0])
+    const [category, setCategory] = useState<string>(DIARY_TYPES[0])
     const [country, setCountry] = useState<string>(COUNTRIES[0])
-    const [status, setStatus] = useState<string>(STORY_STATUSES[0])
+    const [level, setLevel] = useState<string>(LANG_LEVELS[0])
 
-    const {data, loading} = useQuery(getStoriesQ)
+    const {data, loading} = useQuery(getDiariesQ)
 
     useLayoutEffect(() => {
-        changeTitle('Истории')
+        changeTitle('Дневники')
 
         if (data) {
-            setStories(data.getStories)
+            setDiaries(data.getDiaries)
         }
     }, [data])
     
     useMemo(() => {
-        if (stories !== null) {
-            let result: any[] = stories.filter(el => el.category === category && el.country === country)
+        if (diaries !== null) {
+            let result: any[] = diaries.filter(el => el.category === category && el.level === level)
 
             if (title.length !== 0) {
                 result = result.filter(el => centum.search(el.title, title, SEARCH_PERCENT))
             }
 
-            result = result.filter(el => el.status === status)
+            result = result.filter(el => el.country === country)
 
             setFiltered(result)
         }
-    }, [stories, title, category, country, status])
+    }, [diaries, title, category, country, level])
 
     return (
         <>
             <h4 className='pale'>Название</h4>
-            <input value={title} onChange={e => setTitle(e.target.value)} placeholder='Название истории' type='text' />
+            <input value={title} onChange={e => setTitle(e.target.value)} placeholder='Название дневника' type='text' />
 
             <div className='items small'>
-                {STORY_TYPES.map(el => <div onClick={() => setCategory(el)} className={classHandler(el, category)}>{el}</div>)}
+                {DIARY_TYPES.map(el => <div onClick={() => setCategory(el)} className={classHandler(el, category)}>{el}</div>)}
             </div>
             
-            <h4 className='pale'>Страна & Статус</h4>
+            <h4 className='pale'>Страна & Язык</h4>
 
             <div className='items small'>
                 <select value={country} onChange={e => setCountry(e.target.value)}>
                     {COUNTRIES.map(el => <option value={el}>{el}</option>)}
                 </select>
-                <select value={status} onChange={e => setStatus(e.target.value)}>
-                    {STORY_STATUSES.map(el => <option value={el}>{el}</option>)}
+                <select value={level} onChange={e => setLevel(e.target.value)}>
+                    {LANG_LEVELS.map(el => <option value={el}>{el}</option>)}
                 </select>
             </div>
 
-            <DataPagination items={filtered} setItems={setFiltered} label='Истории:' />
+            <DataPagination items={filtered} setItems={setFiltered} label='Дневники:' />
  
             {data &&
                 <div className='items half'>
                     {filtered.map(el => 
                         <div className='item card'>
-                            <RouterNavigator url={`/story/${el.shortid}`}>
+                            <RouterNavigator url={`/diary/${el.shortid}`}>
                                 {centum.shorter(el.title)}
                             </RouterNavigator>
                         </div>
@@ -77,9 +77,9 @@ const Stories: React.FC = () => {
                 </div>
             }
 
-            {loading && <Loading label='Загрузка истории' />}
+            {loading && <Loading label='Загрузка дневников' />}
         </>
     )
 }
 
-export default Stories
+export default Diaries

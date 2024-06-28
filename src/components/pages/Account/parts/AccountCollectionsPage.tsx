@@ -23,7 +23,7 @@ const AccountCollectionsPage: React.FC<AccountPropsType> = ({profile}) => {
     return (
         <>
             <h2>Компоненты</h2>
-            <h4 className='pale'>Создайте что-нибудь своё</h4>
+            <h4 className='pale'>Создайте что-нибудь интересное</h4>
 
             <div className='items medium'>
                 {components.map(el => 

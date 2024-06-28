@@ -5,7 +5,7 @@ import {AccountPropsType, AccountPart} from '../../../env/types'
 
 const AccountSidebar: React.FC<AccountPropsType> = ({profile}) => {
     const [part, setPart] = useState<AccountPart>(parts[0])
-     
+
     return (
         <>
             <div className='profile-menu'>

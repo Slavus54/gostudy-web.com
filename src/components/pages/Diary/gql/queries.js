@@ -1,31 +1,30 @@
 import {gql} from '@apollo/client'
 
-export const getStoriesQ = gql`
+export const getDiariesQ = gql`
     query {
-        getStories {
+        getDiaries {
             shortid
             name
             title
             category
             country
             level
-            status
-            image
+            latestDate
             questions {
                 shortid
                 name
-                text
-                format
+                content       
+                language
+                level
                 reply
-                likes
             }
-            products {
+            thoughts {
                 shortid
-                name
-                title
+                text
                 category
-                cost
+                image
                 dateUp
+                likes
             }
         }
     }

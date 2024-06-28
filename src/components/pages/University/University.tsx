@@ -6,6 +6,7 @@ import {useDispatch} from 'react-redux'
 import {appendRoute} from '../../../store/slices/RouteSlice'
 import {centum, datus} from '../../../shared/libs/libs'
 import {AppContext} from '../../../context/AppContext'
+import {getWeatherAPI} from '../../../utils/weather'
 import {changeTitle, buildNotification} from '../../../utils/notifications'
 import {classHandler} from '../../../utils/css'
 import DataPagination from '../../../shared/UI/DataPagination'
@@ -32,6 +33,7 @@ const University: React.FC = () => {
     const [cords, setCords] = useState<Cords>({lat: 0, long: 0})
     const [isTruth, setIsTruth] = useState<boolean>(true)
     const [points, setPoints] = useState<number>(0)
+    const [weather, setWeather] = useState<string>('Clear')
     const [image, setImage] = useState<string>('')
 
     const dispatch = useDispatch()
@@ -98,6 +100,7 @@ const University: React.FC = () => {
         if (university !== null) {
             setState({...state, faculty: university.faculty, competition: university.competition})
 
+            getWeatherAPI(university.cords.lat, university.cords.long).then(data => setWeather(data.weather[0].main))
             setCords(university.cords)
         }
     }, [university])
@@ -173,6 +176,7 @@ const University: React.FC = () => {
                     <div className='items half'>
                         <h4 className='pale'>Категория: {university.category} ({university.format})</h4>
                         <h4 className='pale'>Основан в {university.century} ({university.country})</h4>
+                        <h4 className='pale'>Погода: {weather}</h4>
                     </div>
 
                     <button onClick={() => onAddRoute(true)} className='light'>В маршрут</button>
@@ -235,7 +239,7 @@ const University: React.FC = () => {
                         )}
                     </ReactMapGL>
 
-                    <h4 className='pale'>Немного статистики</h4>
+                    <h2>Статистика факультета {university.faculty}</h2>
 
                     <input value={faculty} onChange={e => setState({...state, faculty: e.target.value})} placeholder='Аббревиатура факультета' type='text' />
 

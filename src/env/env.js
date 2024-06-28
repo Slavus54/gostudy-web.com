@@ -7,11 +7,13 @@ export const TOWNS_API_KEY = 'towns'
 export const SESSION_INFO_KEY = 'session'
 export const ACCOUNT_INFO_KEY = 'account'
 export const ACCOUNT_COOKIE_KEY = 'profile'
+export const THEME_KEY = 'theme'
 
 export const LEVELS = ['Легкий', 'Средний', 'Высокий', 'Ультра']
 export const COUNTRIES = ['Чехия', 'Словакия', 'Австрия']
 export const STAGES = ['Виза', 'Нострификация', 'Учёба']
 export const LANGUAGES = ['Чешский', 'Словацкий', 'Немецкий']
+export const THEMES = ['light', 'dark']
 
 export const TG_ICON = 'https://img.icons8.com/color/48/telegram-app--v1.png'
 export const PROJECT_ICON = 'https://www.gostudy.cz/favicon.ico'

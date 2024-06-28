@@ -1,4 +1,4 @@
-import {TOWNS_API_ENDPOINT, TOWNS_API_KEY, SESSION_INFO_KEY, ACCOUNT_INFO_KEY} from '../env/env'
+import {TOWNS_API_ENDPOINT, TOWNS_API_KEY, SESSION_INFO_KEY, ACCOUNT_INFO_KEY, THEME_KEY} from '../env/env'
 
 export const checkStorageData = (key, isLocal = true) => isLocal ? localStorage.getItem(key) === null : sessionStorage.getItem(key) === null 
 
@@ -34,4 +34,10 @@ export const updateProfileInfo = (profile) => {
 
 export const getProfileInfo = () => {
     return checkStorageData(ACCOUNT_INFO_KEY) ? null : JSON.parse(localStorage.getItem(ACCOUNT_INFO_KEY))
+}
+
+// Theme Picker
+
+export const onUpdateTheme = (theme) => {
+    localStorage.setItem(THEME_KEY, theme)
 }

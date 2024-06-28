@@ -32,11 +32,11 @@ import CreateLesson from '../components/pages/Lesson/CreateLesson'
 import Lessons from '../components/pages/Lesson/Lessons'
 import Lesson from '../components/pages/Lesson/Lesson'
 
-// Story's Components
+// Diary's Components
 
-import CreateStory from '../components/pages/Story/CreateStory'
-import Stories from '../components/pages/Story/Stories'
-import Story from '../components/pages/Story/Story'
+import CreateDiary from '../components/pages/Diary/CreateDiary'
+import Diaries from '../components/pages/Diary/Diaries'
+import Diary from '../components/pages/Diary/Diary'
 
 // Profile's Components
 
@@ -89,9 +89,9 @@ export const items: RouteItem[] = [
         visible: true
     },
     {
-        title: 'Истории',
-        url: '/stories',
-        component: Stories,
+        title: 'Дневники',
+        url: '/diares',
+        component: Diaries,
         status: RouteStatuses.RegisteredOnly,
         visible: true
     },
@@ -174,15 +174,15 @@ export const items: RouteItem[] = [
     },
     {
         title: '',
-        url: '/create-story/:id',
-        component: CreateStory,
+        url: '/create-diary/:id',
+        component: CreateDiary,
         status: RouteStatuses.RegisteredOnly,
         visible: false
     },
     {
         title: '',
-        url: '/story/:id',
-        component: Story,
+        url: '/diary/:id',
+        component: Diary,
         status: RouteStatuses.RegisteredOnly,
         visible: false
     },

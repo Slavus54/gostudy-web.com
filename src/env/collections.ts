@@ -18,7 +18,7 @@ export const components: AccountComponentType[] = [
         url: 'lesson'
     },
     {
-        title: 'История',
-        url: 'story'
+        title: 'Дневник',
+        url: 'diary'
     },
 ]
