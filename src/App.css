@@ -23,7 +23,7 @@ body::-webkit-scrollbar-thumb {
 
 h1, h2, h3, h4, h5 {
 	font-weight: 300;
-	margin: 0.5rem;
+	margin: 1rem;
 }
 
 p {
@@ -92,7 +92,7 @@ span {
 	background-color: rgb(225, 243, 255);
 	border-radius: .5rem;
 	padding: 1rem .5rem;
-  	margin: 1rem;
+  	margin: .5rem;
 }
 
 textarea {
@@ -119,7 +119,7 @@ select {
 	border: none;
 	border-radius: 0.5rem;
 	padding: .5rem;
-	margin: .5rem;
+	margin: .25rem;
 	user-select: none;
 	cursor: pointer;
 	outline: none;
@@ -136,7 +136,7 @@ button {
 	font-size: .8rem;
 	font-weight: 700;
 	padding: 1rem 1.25rem;
-	margin: 1rem;
+	margin: .75rem;
 	letter-spacing: .1rem;
 	border-radius: .25rem;
 	border: none;
@@ -218,7 +218,7 @@ input[type=text] {
 	cursor: pointer;
 	color: #e9e9e9;
 	letter-spacing: 0.2rem;
-	font-size: 1.4rem;
+	font-size: 1.3rem;
 	font-weight: 200;
 	transition: .1s ease-in-out;
 }
@@ -373,7 +373,7 @@ input[type=text] {
 .panel {
 	font-size: 1rem;
 	font-weight: 400;
-	width: min(100%, 16rem);
+	width: min(100%, 18rem);
 	height: 8rem;
 	color: #171717;
 	border: none;
@@ -381,6 +381,15 @@ input[type=text] {
 	border-radius: 0.5rem;
 	padding: 1rem;
 	margin-top: 1rem;
+}
+
+.part {
+	font-size: 1rem;
+	font-weight: 300;
+	width: min(100%, 24rem);
+	height: 13rem;
+	color: #171717;
+	border-radius: 0.5rem;
 }
 
 .profile-menu {

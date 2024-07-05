@@ -2,6 +2,7 @@
 
 import Home from '../components/head/Home'
 import Courses from '../components/pages/Courses/Courses'
+import Study from '../components/pages/Study/Study'
 
 // Authentication's Components
 
@@ -53,10 +54,18 @@ export const items: RouteItem[] = [
         status: RouteStatuses.Allowed,
         visible: true
     },
+   
     {
         title: 'Программы',
         url: '/courses',
         component: Courses,
+        status: RouteStatuses.StrangerOnly,
+        visible: true
+    },
+    {
+        title: 'Учёба',
+        url: '/study',
+        component: Study,
         status: RouteStatuses.StrangerOnly,
         visible: true
     },

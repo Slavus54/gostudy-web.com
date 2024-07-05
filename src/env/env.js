@@ -8,6 +8,7 @@ export const SESSION_INFO_KEY = 'session'
 export const ACCOUNT_INFO_KEY = 'account'
 export const ACCOUNT_COOKIE_KEY = 'profile'
 export const THEME_KEY = 'theme'
+export const TRANSLATION_HISTORY_KEY = 'translation-history'
 
 export const LEVELS = ['Легкий', 'Средний', 'Высокий', 'Ультра']
 export const COUNTRIES = ['Чехия', 'Словакия', 'Австрия']

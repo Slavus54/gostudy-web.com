@@ -6,7 +6,7 @@ import ImageLook from '../../../../shared/UI/ImageLook'
 import {FEEDBACK_TYPES, FEEDBACK_URL, FEEDBACK_EMAIL, FILE_ICON} from '../env'
 import {AccountPropsType} from '../../../../env/types'
 
-const AccountFeedbackPage: React.FC<AccountPropsType> = ({profile}) => {    
+const AccountFeedbackPage: React.FC<AccountPropsType> = () => {    
     const [state, setState] = useState({
         text: '',
         category: FEEDBACK_TYPES[0],

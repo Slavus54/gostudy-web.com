@@ -1,4 +1,4 @@
-import {TOWNS_API_ENDPOINT, TOWNS_API_KEY, SESSION_INFO_KEY, ACCOUNT_INFO_KEY, THEME_KEY} from '../env/env'
+import {TOWNS_API_ENDPOINT, TOWNS_API_KEY, SESSION_INFO_KEY, ACCOUNT_INFO_KEY, THEME_KEY, TRANSLATION_HISTORY_KEY} from '../env/env'
 
 export const checkStorageData = (key, isLocal = true) => isLocal ? localStorage.getItem(key) === null : sessionStorage.getItem(key) === null 
 
@@ -40,4 +40,12 @@ export const getProfileInfo = () => {
 
 export const onUpdateTheme = (theme) => {
     localStorage.setItem(THEME_KEY, theme)
+}
+
+// Translation History
+
+export const translations = JSON.parse(localStorage.getItem(TRANSLATION_HISTORY_KEY)) || []
+
+export const onUpdateTranslationHistory = (text, translated, langFrom = 'en', langTo = 'cze', timestamp = '') => {
+    localStorage.setItem(TRANSLATION_HISTORY_KEY, JSON.stringify([...translations, {text, translated, langFrom, langTo, timestamp}]))
 }

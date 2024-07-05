@@ -56,7 +56,7 @@ const AccountPersonalPage: React.FC<AccountPropsType> = ({profile}) => {
         <>
             <ImageLook src={image} min={16} max={18} className='photo' alt="account's photo" />
             <h3>{profile.name}</h3> 
-
+            
             <div className='items small'>
                 <select value={country} onChange={e => setState({...state, country: e.target.value})}>
                     {COUNTRIES.map(el => <option value={el}>{el}</option>)}

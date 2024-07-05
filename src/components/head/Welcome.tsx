@@ -18,7 +18,7 @@ const Welcome: React.FC = () => {
 
     return (
         <>
-            <h2>GoStudy Web</h2>
+            <h1>GoStudy Web</h1>
 
             <div className='items little'>
                 <RouterNavigator url='/login'>
@@ -30,7 +30,7 @@ const Welcome: React.FC = () => {
             </div>           
         
             <h2>О чём платформа?</h2>
-            <h4 className='pale'>Коммуникация и погружение в языковую среду</h4>
+            <h4 className='pale'>Коммуникация и погружение в языковую и культурную среду стран ЕС: Чехии, Словакии и Австрии</h4>
 
             <div className='items half'>
                 {features.map(el => 

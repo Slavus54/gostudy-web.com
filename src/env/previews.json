@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Интервью со студентом ВШХТ (VŠCHT)| Экономика и менеджмент",
+        "path": "./interviews/economy.jpg",
+        "link": "https://www.youtube.com/watch?v=eRAZePPZkuA"
+    },
+    {
+        "title": "Разработка игр и приложений | Образование в Европе и жизнь в Канаде",
+        "path": "./interviews/it_game.jpg",
+        "link": "https://www.youtube.com/watch?v=6xyBdXib5JE"
+    },
+    {
+        "title": "Интервью со студентом VŠFS| Частный университет",
+        "path": "./interviews/private_vsfs.jpg",
+        "link": "https://www.youtube.com/watch?v=MhGktDtoEJ8"
+    },
+    {
+        "title": "ВШЭ - Международные отношения | Образование в Чехии",
+        "path": "./interviews/vse_relationship.jpg",
+        "link": "https://www.youtube.com/watch?v=k9xD4eJwThw"
+    }
+]
