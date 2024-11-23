@@ -21,4 +21,4 @@ Send your email to support.
 
 ### URL  
 
-*gostudy-web-com.vercel.app* 
+https://gostudy-web-com.vercel.app
